@@ -1,0 +1,93 @@
+<!-- <section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <form [formGroup]="createProjectForm" autocomplete="off" novalidate (ngSubmit)="createProject(createProjectForm.value)" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+  <mat-card-content>
+        <mat-form-field>
+                <input matInput type="text" placeholder="Project" formControlName="project" id="project" required>
+                1<mat-hint align="end">Not more then 60 characters long.</mat-hint>
+                <mat-error *ngIf="getErrorMessage('project','required')">Project is required</mat-error>
+                <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+              </mat-form-field>
+              <br>
+              <div>
+                    <mat-checkbox (change)="setDates($event,createProjectForm)" >Set Start and End date</mat-checkbox>
+              <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Start date" formControlName="startDate" id="startDate" 
+                        readonly (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <input matInput [matDatepicker]="picker1" placeholder="End date" formControlName="endDate" id="endDate" 
+                            readonly (click)="picker1.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                      </mat-form-field>
+                  </div>
+                  <br>
+                   <mat-form-field>
+                        <div class="slidecontainer">
+                                <p>Default range slider:</p>
+                                <input  type="range" min="1" max="40" value="50" formControlName="priority">
+                                </div>
+                   </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="!createProjectForm.valid">Create</button>
+        <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  </mat-card-actions>
+</form>
+</mat-card>
+</section> -->
+<div class="container">
+        <form [formGroup]="createProjectForm" autocomplete="off" (ngSubmit)="createProject(createProjectForm)">
+          <div class="row">
+            <div class="col-25">
+              <label for="project">Project</label>
+            </div>
+            <div class="col-75">
+              <input  formControlName= "project" type="text" id="project" name="project" placeholder="Project" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname"></label>
+            </div>
+            <div class="col-75">
+                    <div class="col-25">
+                       <input type="checkbox" (change)="setDates($event)">  Set Start and End date
+                    </div>
+                <div class="col-25">
+                    Start Date <input formControlName= "startDate" type="date" id="startdate" name="startDate" placeholder="Start Date">
+                </div>
+              <div class="col-25">
+               End Date <input formControlName= "endDate" type="date" id="enddate" name="endDate" placeholder="Start Date">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+                <div class="col-25">
+                  <label for="project">Priority</label>
+                </div>
+                <div class="col-75">
+                  <input  formControlName= "priority" type="text" id="priority" name="priority" placeholder="Priority" required>
+                </div>
+              </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Manager</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="subject" name="subject" placeholder="">
+              <div class="col-25">
+              <input type="button" value="Search">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Submit">
+            <input type="button" value="Cancel">
+          </div>
+        </form>
+      </div>

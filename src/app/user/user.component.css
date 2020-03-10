@@ -1,0 +1,37 @@
+.user-list {
+    margin-top: 10px;
+}
+ul.list-group {
+    width: 70%;
+    float: left;
+}
+
+.user-action-btns {
+    width: 25%;
+    float: right;
+}
+.user-action-btns
+input[type=button]{
+    margin: 5px;
+    width: 100%;
+}
+.user-list-container {
+    height: 180px;
+    border-bottom: dotted darkgrey;
+    margin-top: 5px;
+}
+
+li.list-group-item {
+    background-color: #e2dfdf;
+    border: 0;
+    margin: 3px;
+}
+.user-add {
+    padding-bottom: 5px;
+    border-bottom: solid #13133c;
+}
+.user-list-searchbar {
+    border-bottom: dotted darkgrey;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
