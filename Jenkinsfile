@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'ng serve'
+                sh 'npm build'
             }
         }
     }
