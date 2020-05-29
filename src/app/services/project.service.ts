@@ -38,4 +38,19 @@ export class ProjectService {
       catchError(this.handleError<Project>(`getProjectById id=${id}`))
     );
   }
+  getAllProjects(): Observable<any>{
+    const url = `${this.apiUrl}/getAllProjects`;
+    return this.http.get(url).pipe(
+      tap(_ => console.log(`fetched project list`)),
+      catchError(this.handleError<Project>(`getAllProjects`))
+    );
+  }
+  deleteProject(id:string){
+    const url = `${this.apiUrl}/delete/${id}`;
+    return this.http.delete(url).pipe(
+      tap(_ =>console.log('delete project')),
+      catchError(this.handleError<Project>('delete project'))
+    );
+  }
+
 }

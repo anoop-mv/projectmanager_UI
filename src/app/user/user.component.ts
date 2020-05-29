@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   user:User;
   userList:User[];
   saveBtnName='Add';
+  userSearch:string;
 
 get f() { return this.userForm.controls; }
   constructor(private formBuilder: FormBuilder,private userService :UserService) { }
@@ -106,7 +107,20 @@ onReset() {
   this.submitted = false;
   this.userForm.reset();
 }
-//   onSubmit(form) {
-//     console.log(form.value)
-// }
+sortList(paramName:string){
+  if(paramName==="firstName"){
+    this.userList=this.userList.sort((a,b) => {
+      return a.firstName<b.firstName ? -1:1;
+    });
+  }else if(paramName==="lastName"){
+    this.userList=this.userList.sort((a,b) => {
+      return a.lastName<b.lastName ? -1:1;
+    });
+  }else if(paramName==="id"){
+    this.userList=this.userList.sort((a,b) => {
+      return a.id<b.id ? -1:1;
+    });
+  }
+  
+}
 }

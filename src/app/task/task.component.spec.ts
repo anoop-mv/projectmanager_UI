@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskComponent } from './task.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
+import { ListFilter } from './../app-filter';
 
 describe('TaskComponent', () => {
   let component: TaskComponent;
@@ -8,9 +12,14 @@ describe('TaskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TaskComponent ]
+      imports: [FormsModule,
+         ReactiveFormsModule, 
+        HttpClientTestingModule,
+        RouterModule.forRoot([])
+      ],
+      declarations: [TaskComponent,ListFilter]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

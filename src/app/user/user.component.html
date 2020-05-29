@@ -33,27 +33,35 @@
       </div>
   </div>
   <div class="text-center">
-      <button class="btn btn-primary mr-1">{{saveBtnName}}</button>
+      <button class="btn btn-secondary mr-1">{{saveBtnName}}</button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
   </div>
 </form>
 </div>
-<div class="user-list">
-    <div class="form-group user-list-searchbar">
-  <input class="form-control" type="text" placeholder="Search">
+<div class="list-view">
+    <div class="form-group row list-view-searchbar"> 
+    <div class="form-group col-sm-5">
+  <input class="form-control" type="text" placeholder="Search" [(ngModel)]="userSearch">
     </div>
-  <div class="user-list-container" *ngFor="let user of userList">
-    <div class="user-list-group">
+    <div class="form-group col-sm-7 sort-btn-group">
+        <label class="col-sm-2">Sort : </label>
+        <input type="button" class="btn btn-secondary" value="First Name" (click)="sortList('firstName')"> 
+        <input type="button" class="btn btn-secondary" value="Last Name" (click)="sortList('lastName')"> 
+        <input type="button" class="btn btn-secondary" value="Id" (click)="sortList('id')"> 
+          </div>
+    </div>
+  <div class="list-view-container" *ngFor="let user of userList | listFilter:userSearch">
+    <div class="list-view-group">
   <ul class="list-group">
     <li class="list-group-item">
-      <label class="col-sm-6">{{user.firstName}}</label>
+      {{user.firstName}}
     </li>
     <li class="list-group-item">{{user.lastName}}</li>
     <li class="list-group-item">{{user.employeeId}}</li>
   </ul>
-  <div class="user-action-btns">
-      <input type="button" class="btn btn-info" value="Edit" (click)="editUser(user)"> 
-      <input type="button" class="btn btn-danger" value="Delete" (click)="deleteUser(user.id)">
+  <div class="list-view-action-btns">
+      <input type="button" class="btn btn-secondary" value="Edit" (click)="editUser(user)"> 
+      <input type="button" class="btn btn-secondary" value="Delete" (click)="deleteUser(user.id)">
       </div>
       </div>
   </div>

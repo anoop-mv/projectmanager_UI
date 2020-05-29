@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProjectService } from './project.service';
+import { TaskService } from './task.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('ProjectService', () => {
-  let service: ProjectService;
+describe('TaskService', () => {
+  let service: TaskService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule]
+      imports: [HttpClientTestingModule]
     });
-    service = TestBed.inject(ProjectService);
+    service = TestBed.inject(TaskService);
   });
 
   it('should be created', () => {

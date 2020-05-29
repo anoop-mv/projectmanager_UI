@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewtaskComponent } from './viewtask.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule, Routes } from '@angular/router';
+import { ListFilter } from './../app-filter';
 
 describe('ViewtaskComponent', () => {
   let component: ViewtaskComponent;
@@ -8,7 +11,8 @@ describe('ViewtaskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewtaskComponent ]
+      imports:[HttpClientTestingModule,RouterModule.forRoot([])],
+      declarations: [ ViewtaskComponent,ListFilter ]
     })
     .compileComponents();
   }));

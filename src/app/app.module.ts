@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ListFilter } from './app-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +16,12 @@ import { HeaderComponent } from './header/header.component';
 import { TaskComponent } from './task/task.component';
 import { ProjectComponent } from './project/project.component';
 import { ViewtaskComponent } from './viewtask/viewtask.component';
+import { ModalComponent } from './modal/modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "project", pathMatch: "full" },
   { path: 'user',          component: UserComponent    },
-  { path: 'task',         component: TaskComponent     },
+  { path: 'task/:id',         component: TaskComponent     },
   { path: 'project',       component: ProjectComponent },
   { path: 'viewtask',       component: ViewtaskComponent}];
 
@@ -30,7 +32,9 @@ const routes: Routes = [
     HeaderComponent,
     TaskComponent,
     ProjectComponent,
-    ViewtaskComponent
+    ViewtaskComponent,
+    ListFilter,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +44,8 @@ const routes: Routes = [
     // MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
-    // FormsModule
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
