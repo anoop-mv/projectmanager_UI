@@ -1,5 +1,6 @@
 pipeline {
     agent { dockerfile true }
+    ${workspace}
     stages {
         stage('build') {
             steps {
