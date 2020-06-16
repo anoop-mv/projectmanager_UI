@@ -3,7 +3,7 @@ pipeline {
    stages {
   stage('Stage Web Build') {
       steps {
-        sh 'npm run build --prod'
+        sh 'npm install'
     }
   }
   }
